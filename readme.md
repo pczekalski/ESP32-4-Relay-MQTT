@@ -1,15 +1,18 @@
 # Hardware
 Hardware is an ESP32-based 4-relay module. This particular one has an integrated power source with an AC-DC converter.
 
-
-
+![ESP32 4-relay module](https://github.com/pczekalski/ESP32-4-Relay-MQTT/blob/main/Screenshot%20from%202025-12-04%2017-00-30.png)
 
 This solution, however, is compatible with any hardware that is ESP32-based, that uses:
 - 4 separate GPIOs to control relays, one GPIO per relay, binary logic (1 is on, 0 is off)
 - has a separate LED to present the state (also binary controlled).
 
+For this development board the configuration is as follows:
+- Relay's GPIOs (in order 1 to 4): 32, 33, 25, 26;
+- LED GPIO: 23
+
 # Software
-Software works the way that it exposes an access point (WiFi) that you can connect to. The default access code is 12345678.
+Software works by exposing an access point (WiFi) that you can connect to. The default access code is 12345678.
 Once connected, open a browser at http://192.168.4.1 and configure:
 - WiFi (SSID, pass) the module should connect to
 - MQTT broker configuration: 

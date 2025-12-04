@@ -1,16 +1,16 @@
 # Hardware
-Hardware is an ESP32-based 4-relay module. This particular one has integrated power source with AC-DC converter.
+Hardware is an ESP32-based 4-relay module. This particular one has an integrated power source with an AC-DC converter.
 
 
 
 
-This solution, however, is compatible with any hardware taht is ESP32-based, that uses:
+This solution, however, is compatible with any hardware that is ESP32-based, that uses:
 - 4 separate GPIOs to control relays, one GPIO per relay, binary logic (1 is on, 0 is off)
-- has separate LED to present state (also binary controlled).
+- has a separate LED to present the state (also binary controlled).
 
 # Software
-Software works the way that it exposes and access point (WiFi) you can connect to. Default access code is 12345678.
-Once connected, open browser at http://192.168.4.1 and configure:
+Software works the way that it exposes an access point (WiFi) that you can connect to. The default access code is 12345678.
+Once connected, open a browser at http://192.168.4.1 and configure:
 - WiFi (SSID, pass) the module should connect to
 - MQTT broker configuration: 
   - IP address
@@ -23,10 +23,10 @@ Once connected, open browser at http://192.168.4.1 and configure:
 - 4 MQTT topics (one per relay)
 
 > [!WARNING]
-> there are no validations thus mind what you configure!
+> There are no validations, so mind what you configure!
 
-Once config is saved, device reboots and tries to connect to the WiFi AP using provided credentials. If it fails for any reason it will fall back to AP mode so you can correct your configuration again.
-It is also possible to access configuration panel when in WiFI client mode - check the IP the device was given by the DHCP server and point your browser there.
+Once the config is saved, the device reboots and tries to connect to the WiFi AP using the provided credentials. If it fails for any reason, it will fall back to AP mode so you can correct your configuration again.
+It is also possible to access the configuration panel when in WiFI client mode - check the IP address the DHCP server gave the device and point your browser there.
 
 Once successfully connected to the WiFi and MQTT broker, the device subscribes to 4 topics as configured. It awaits a text as a payload, containing one of the following strings:
 - ON (case sensitive) to switch the relay on
